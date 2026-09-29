@@ -358,7 +358,7 @@ def list_tables():
 def open_table(table_number):
     """Seat guests: the cashier opens the table before anyone can order."""
     if not pos_int(table_number, MAX_TABLE):
-        return jsonify({"error": "Số bàn không hợp lệ."}), 400
+        return jsonify({"error": "Số bàn không phù hợp."}), 400
     staff = current_staff()
     with closing(db()) as connection, connection:
         if find_open_session(connection, table_number):
